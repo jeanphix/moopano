@@ -1,0 +1,27 @@
+body{
+    width: 975px;
+    margin: 0 auto;
+    color: #333;
+}
+h1, h2, h3{
+    font-family: 'Dancing Script', arial, serif;
+    font-weight: normal;
+}
+h1, h3, a{
+    color: #B90228;
+}
+p.panorama-holder{
+    border: 10px #ccc solid;
+    position: relative;
+    height: 154px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+ul#places{
+    padding: 0;
+}
+ul#places li{
+    display: inline;
+    padding: 0 2em 0 0;
+}
