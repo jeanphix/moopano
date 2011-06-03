@@ -7,9 +7,9 @@ window.addEvent('load', function(){
     var marked = new MooPano('marked-panorama', {
         big: 'images/big.jpg',
         points: {
-            'chateau': new MooPano.Point({title: 'le château', top: 40, left: 90}),
-            'cite': new MooPano.Point({title: 'la cité médiévale', top: 120, left: 107}),
-            'hospitalet': new MooPano.Point({title: 'l\'hôspitalet', top: 49, left: 821})
+            'chateau': new MooPano.Marker({title: 'le château', top: 40, left: 90}),
+            'cite': new MooPano.Marker({title: 'la cité médiévale', top: 120, left: 107}),
+            'hospitalet': new MooPano.Marker({title: 'l\'hôspitalet', top: 49, left: 821})
         }
     });
     Object.each(marked.options.points, function(point, id){

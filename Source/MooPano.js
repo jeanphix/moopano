@@ -1,7 +1,19 @@
 /*
-    
-*/
+---
+description: MooPano class.
 
+license: MIT-style
+
+authors:
+- Jean-Philippe Serafin <serafinjp@gmail.com>
+
+requires: 
+  core/1.3.2: '*'
+
+provides: [MooPano]
+
+...
+*/
 var MooPano = new Class({
 
     Implements: [Options],

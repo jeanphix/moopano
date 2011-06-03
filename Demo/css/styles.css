@@ -58,3 +58,7 @@ div.marker p:after {
     display:block; 
     width:0;
 }
+footer{
+    font-size: 90%;
+    font-style: italic;
+}
