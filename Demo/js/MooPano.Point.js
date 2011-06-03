@@ -1,1 +1,0 @@
-../../Source/MooPano.Point.js
