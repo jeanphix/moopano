@@ -5,6 +5,7 @@ Simple mootools based panorama viewer.
 
 Based on: http://mootools.net/forge/p/zoomer
 
+Demo: http://moopano.jeanphi.fr
 
 How to use
 ----------
