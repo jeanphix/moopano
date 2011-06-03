@@ -40,6 +40,36 @@ var MooPano = new Class({
                 margin: '0'
             } 
         });
+        this.loader = new Element('p', {
+           'class': 'loader',
+           styles: {
+                position: 'absolute',
+                top: '-1em',
+                left: 0,
+                opacity: 0.8,
+                background: '#000',
+                color: '#fff',
+                padding: '0.2em 1em'
+            },
+            text: 'loading...'
+        });
+        this.wrapper = new Element('div',{
+            'class': 'big',
+            styles: {
+                position: 'absolute',
+                top: this.top,
+                left: this.left,
+                width: this.small.offsetWidth, 
+                height: this.small.offsetHeight,
+                overflow: 'hidden',
+                zIndex: (this.small.getStyle('zIndex').toInt() || 0) + 1 
+            },
+            events: {
+                mouseenter: this.startZoom.bind(this),
+                mouseleave: this.stopZoom.bind(this),
+                mousemove: this.move.bind(this)
+            }
+        }).adopt(this.loader).inject(document.body);
         if(!this.big.complete) {
             this.big.addEvent('load', function() {
                 this.initBig();
@@ -50,24 +80,8 @@ var MooPano = new Class({
     },
 
     initBig: function(){
-        this.wrapper = new Element('div',{
-            'class': 'big',
-            styles: {
-                position: 'absolute',
-                top: this.top,
-                left: this.left,
-                width: this.small.offsetWidth, 
-                height: this.small.offsetHeight,
-                overflow: 'hidden',
-                fontSize: '0',
-                zIndex: (this.small.getStyle('zIndex').toInt() || 0) + 1 
-            },
-            events: {
-                mouseenter: this.startZoom.bind(this),
-                mouseleave: this.stopZoom.bind(this),
-                mousemove: this.move.bind(this)
-            }
-        }).adopt(this.big).inject(document.body);
+        this.wrapper.adopt(this.big);
+        this.loader.destroy();
     },
 
     displayPoint: function(key) {
