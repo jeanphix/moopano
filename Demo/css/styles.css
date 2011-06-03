@@ -3,12 +3,16 @@ body{
     margin: 0 auto;
     color: #333;
 }
-h1, h2, h3{
+h1, h2{
     font-family: 'Dancing Script', arial, serif;
     font-weight: normal;
 }
-h1, h3, a{
+h1, a{
     color: #B90228;
+}
+h3{
+    font-size: 105%;
+    font-weight: normal;
 }
 p.panorama-holder{
     border: 10px #ccc solid;
@@ -24,4 +28,33 @@ ul#places{
 ul#places li{
     display: inline;
     padding: 0 2em 0 0;
+}
+div.marker{
+    margin: -4.5em -4em;
+}
+div.marker p{
+    position:relative;
+    padding:1em;
+    margin:0 0 3em;
+    font-size: inherit;
+    color: #fff;
+    background:#c81e2b;
+    background:-webkit-gradient(linear, 0 0, 0 100%, from(#f04349), to(#c81e2b));
+    background:-moz-linear-gradient(#f04349, #c81e2b);
+    background:-o-linear-gradient(#f04349, #c81e2b);
+    background:linear-gradient(#f04349, #c81e2b);
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+}
+div.marker p:after {
+    content:"";
+    position:absolute;
+    bottom:-1em;
+    left:3em;
+    border-width:1em 1em 0;
+    border-style:solid;
+    border-color:#c81e2b transparent;
+    display:block; 
+    width:0;
 }

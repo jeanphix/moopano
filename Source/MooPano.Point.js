@@ -1,4 +1,4 @@
-var MooPano.Point = new Class({
+MooPano.Point = new Class({
 
     Implements: [Options],
 

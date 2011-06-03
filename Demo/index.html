@@ -14,13 +14,58 @@
             <img src="images/small.jpg" id="marked-panorama" alt="panorama rocamadour" />
         </p>
         <ul id="places">
-            <li><a href="#">le château</a></li>
-            <li><a href="#">la cité</a></li>
-            <li><a href="#">l'hôspitalet</a></li>
+            <li><a id="chateau" href="#">le château</a></li>
+            <li><a id="cite" href="#">la cité</a></li>
+            <li><a id="hospitalet" href="#">l'hôspitalet</a></li>
         </ul>
+        <h3>javascript:</h3>
+        <pre>
+window.addEvent('load', function(){
+    var marked = new MooPano('marked-panorama', {
+        big: 'images/big.jpg',
+        points: {
+            'chateau': new MooPano.Point({title: 'le château', top: 40, left: 90}),
+            'cite': new MooPano.Point({title: 'la cité médiévale', top: 120, left: 107}),
+            'hospitalet': new MooPano.Point({title: 'l\'hôspitalet', top: 49, left: 821})
+        }
+    });
+    Object.each(marked.options.points, function(point, id){
+        document.id(id).addEvents({
+            mouseenter: function(e){
+                marked.displayPoint(id);
+            },
+            mouseleave: function(e){
+                marked.hidePoint(id);
+                marked.stopZoom();
+            },
+            click: function(e){
+                marked.zoomToCenter({
+                    x: marked.options.points[id].options.left,
+                    y: marked.options.points[id].options.top
+                });
+                marked.displayPoint(id);
+                e.stop();
+            } 
+        });
+    });
+});
+        </pre>
         <h2>Simple panorama</h2>
         <p class="panorama-holder">
             <img src="images/small.jpg" id="simple-panorama" alt="panorama rocamadour" />
+        </p>
+        <h3>javascript:</h3>
+        <pre>
+window.addEvent('load', function(){
+    var simple = new MooPano('simple-panorama', {
+        big: 'images/big.jpg',
+    });
+});
+        </pre>
+        <p>
+            <a href="http://github.com/jean-philippe/moopano">
+                <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub">
+            </a>
         </p>
     </body>
     <script type="text/javascript" src="js/mootools.js" charset="utf-8"></script> 
