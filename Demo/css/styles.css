@@ -55,7 +55,7 @@ div.marker p:after {
     border-width:1em 1em 0;
     border-style:solid;
     border-color:#c81e2b transparent;
-    display:block; 
+    display:block;
     width:0;
 }
 footer{

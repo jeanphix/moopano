@@ -7,7 +7,7 @@ license: MIT-style
 authors:
 - Jean-Philippe Serafin <serafinjp@gmail.com>
 
-requires: 
+requires:
   core/1.3.2: '*'
 
 provides: [MooPano]
@@ -17,7 +17,7 @@ provides: [MooPano]
 var MooPano = new Class({
 
     Implements: [Options],
-    
+
     options: {
         points: {},
         big: null
@@ -50,7 +50,7 @@ var MooPano = new Class({
                 cursor: 'crosshair',
                 padding: '0',
                 margin: '0'
-            } 
+            }
         });
         this.loader = new Element('p', {
            'class': 'loader',
@@ -71,10 +71,10 @@ var MooPano = new Class({
                 position: 'absolute',
                 top: this.top,
                 left: this.left,
-                width: this.small.offsetWidth, 
+                width: this.small.offsetWidth,
                 height: this.small.offsetHeight,
                 overflow: 'hidden',
-                zIndex: (this.small.getStyle('zIndex').toInt() || 0) + 1 
+                zIndex: (this.small.getStyle('zIndex').toInt() || 0) + 1
             },
             events: {
                 mouseenter: this.startZoom.bind(this),
@@ -88,7 +88,7 @@ var MooPano = new Class({
             }.bind(this));
         } else {
             this.initBig();
-        }        
+        }
     },
 
     initBig: function(){
@@ -120,7 +120,7 @@ var MooPano = new Class({
         this.timer = this.zoom.periodical(10, this);
         this.big.fade('in');
     },
-    
+
     zoom: function(){
         if(!this.position) return;
         this.big.setStyles(this.position);
@@ -142,14 +142,14 @@ var MooPano = new Class({
     getCenterCoord: function(coord){
         return {
             top: - parseInt((coord.y * this.big.height / this.small.height) - this.small.height /2 ),
-            left: - parseInt((coord.x * this.big.width / this.small.width) - this.small.width /2) 
+            left: - parseInt((coord.x * this.big.width / this.small.width) - this.small.width /2)
         }
     },
 
     getCoord: function(coord){
         return {
             top: - parseInt(coord.y * (this.big.height - this.small.height) / this.small.height),
-            left: - parseInt(coord.x * (this.big.width - this.small.width) / this.small.width) 
+            left: - parseInt(coord.x * (this.big.width - this.small.width) / this.small.width)
         }
     }
 });
