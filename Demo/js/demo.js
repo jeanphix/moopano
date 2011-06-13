@@ -1,7 +1,7 @@
 window.addEvent('load', function(){
     /* simple panorama */
     var simple = new MooPano('simple-panorama', {
-        big: 'images/big.jpg',
+        big: 'images/big.jpg'
     });
     /* marked panorama */
     var marked = new MooPano('marked-panorama', {
@@ -28,7 +28,7 @@ window.addEvent('load', function(){
                 });
                 marked.displayPoint(id);
                 e.stop();
-            } 
+            }
         });
     });
 });
